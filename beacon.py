@@ -8,10 +8,10 @@ class Beacon(Life):
     grid_size = [20, 20]
 
     def initial_seed(self):
-        return [
+        return {
             (7, 9), (7, 10), (8, 10),
             (10, 8), (10,7), (9, 7)
-        ]
+        }
 
 if __name__ == "__main__":
     Beacon().run()
