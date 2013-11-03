@@ -42,14 +42,15 @@ class Life(object):
                     new_cells[(x, y)] = 1
                 elif ((x, y) in cells) is False and neighbours == 3:
                     new_cells[(x, y)] = 1
+        del cells
         return new_cells
 
     def run(self):
         cells = self.initial_seed()
         while True:
-            cells = self.get_cells(cells)
-            for cell in cells:
-                self.__display.draw(cell[0], cell[1])
             if self.__display.update() is False:
                 self.__display.quit()
                 sys.exit(0)
+            cells = self.get_cells(cells)
+            for cell in cells:
+                self.__display.draw(cell[0], cell[1])
