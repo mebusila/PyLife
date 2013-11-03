@@ -31,7 +31,7 @@ class Display(object):
         self.draw_grid()
         pygame.display.update()
         for event in pygame.event.get():
-            if event.type == QUIT:
+            if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
                 return False
         pygame.time.Clock().tick(self.__fps)
         return True
