@@ -8,7 +8,7 @@ class Beacon(Life):
     grid_size = [20, 20]
 
     def initial_seed(self):
-        cells = self.fill_grid()
+        cells = {}
 
         cells[7, 9] = 1
         cells[7, 10] = 1
