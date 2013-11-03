@@ -9,7 +9,6 @@ import random
 class Life(object):
 
     __display = None
-    __tick = None
     __grid_size = [50, 50]
 
     def __init__(self):
@@ -30,7 +29,7 @@ class Life(object):
 
     def get_cell_neighbours(self, item, cells):
         neighbours = 0
-        for x in range (-1, 2):
+        for x in range(-1, 2):
             for y in range(-1, 2):
                 cell = (item[0]+x, item[1]+y)
                 if cell[0] in range(0, self.__grid_size[0]) and cell[1] in range(0, self.__grid_size[1]):
