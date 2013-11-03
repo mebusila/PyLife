@@ -8,7 +8,7 @@ class Blinker(Life):
     grid_size = [20, 20]
 
     def initial_seed(self):
-        cells = self.fill_grid()
+        cells = {}
 
         cells[9, 8] = 1
         cells[9, 9] = 1

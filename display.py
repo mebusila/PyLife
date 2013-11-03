@@ -11,7 +11,6 @@ class Display(object):
     __grid_bg_color =   GRID_BG_COLOR
     __grid_line_color = GRID_LINE_COLOR
     __alive_color =     LIVE_CELL_COLOR
-    __dead_color =      DEAD_CELL_COLOR
     __fps =             FPS
 
     def __init__(self, title="Display", grid_size=None, width=WINDOW_WIDTH, height=WINDOW_HEIGHT):
@@ -34,6 +33,7 @@ class Display(object):
             if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
                 return False
         pygame.time.Clock().tick(self.__fps)
+        self.__display_surface.fill(self.__grid_bg_color)
         return True
 
     def draw_grid(self):
@@ -42,14 +42,11 @@ class Display(object):
         for y in range (0, self.__height, self.__cell_size[1]):
             pygame.draw.line(self.__display_surface, self.__grid_line_color, (0, y), (self.__width, y))
 
-    def draw(self, x, y, is_alive):
+    def draw(self, x, y):
         x *= self.__cell_size[0]
         y *= self.__cell_size[1]
         position = (x, y, self.__cell_size[0], self.__cell_size[1])
-        if is_alive:
-            pygame.draw.rect(self.__display_surface, self.__alive_color, position)
-        else:
-            pygame.draw.rect(self.__display_surface, self.__dead_color, position)
+        pygame.draw.rect(self.__display_surface, self.__alive_color, position)
 
     def quit(self):
         pygame.quit()
